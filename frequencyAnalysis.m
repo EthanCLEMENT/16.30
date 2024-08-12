@@ -1,0 +1,10 @@
+s = tf('s');
+G = (5*(s+2)) / (s*(s+10));
+Zpd = 40.477;
+Zpi = -0.1;
+K = 487.2;
+Gc = (K*(s+Zpd)*(s+Zpi))/(s);
+Gpd = G * K*(s + Zpd);
+final = G*Gc;
+final = feedback(final,1);
+step(final);
